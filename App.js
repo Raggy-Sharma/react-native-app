@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TextInput, Button, Text, ScrollView } from 'react-native';
+import { View, TextInput, Button, Text, ScrollView, FlatList } from 'react-native';
 import { styles } from './styles'
 
 export default function App() {
@@ -11,17 +11,19 @@ export default function App() {
   }
 
   const onAddClicked = () => {
-    setGoalsList(goalsList => [...goalsList, enteredGoal]);
+    setGoalsList(goalsList => [...goalsList, {id: goalsList.length.toString(), value:enteredGoal}]);
   }
   return (
     <View style={styles.screen}>
       <View style={styles.inputContainer}>
-        <TextInput placeholder='Enter Text' style={styles.inputBox} onChangeText={enteredGoalHandler} value={enteredGoal}/>
-        <Button title='Add' onPress={onAddClicked}/>
+        <TextInput placeholder='Enter Text' style={styles.inputBox} onChangeText={enteredGoalHandler} value={enteredGoal} />
+        <Button title='Add' onPress={onAddClicked} />
       </View>
-      <ScrollView style={styles.goalsContainer}>
-        {goalsList.map((goal, i) => <View style={styles.listItem} key={i}><Text>{i+1}. {goal}</Text></View>)}
-      </ScrollView>
+      <FlatList keyExtractor={(item, index) => item.id} data={goalsList} renderItem={itemData => (
+        <View style={styles.listItem}>
+          <Text>{itemData.item.value}</Text>
+        </View>
+      )} style={styles.goalsContainer} />
     </View>
   );
 }
