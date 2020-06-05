@@ -8,17 +8,7 @@ export const styles = StyleSheet.create({
         paddingLeft: 25,
         height: '100%',
     },
-    inputContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-    inputBox: {
-        borderColor: '#000',
-        borderWidth: 1,
-        padding: 10,
-        width: '80%'
-    },
+    
     goalsContainer: {
         width: '100%',
         marginVertical: 20,
