@@ -23,9 +23,5 @@ export const styles = StyleSheet.create({
         width: '100%',
         marginVertical: 20,
     },
-    listItem: {
-        padding: 10,
-        marginVertical: 5,
-        backgroundColor: '#efefef'
-    }
+    
 });
