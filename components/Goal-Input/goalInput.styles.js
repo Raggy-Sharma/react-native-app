@@ -10,7 +10,8 @@ export const GoalInputStyles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 30
+        // margin: 30,
+        backgroundColor: '#d9f2fa'
     },
     inputBox: {
         borderColor: '#000',
@@ -22,11 +23,11 @@ export const GoalInputStyles = StyleSheet.create({
     btnContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginHorizontal: 30
+        width: '80%'
     },
-    modalBtn: { 
-        marginHorizontal: 5, 
-        flex: 1 
+    modalBtn: {
+        marginHorizontal: 5,
+        flex: 1
     }
 
 })

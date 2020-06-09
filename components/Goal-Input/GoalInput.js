@@ -11,6 +11,8 @@ const GoalInput = props => {
         * the onAddpress taeks an arg "enteredGoal" which can be accessed in two waus
             -> onPress={() => props.onAddPress(enteredGoal)}
             -> onPress={props.onAddPress.bind(this, enteredGoal)}
+        * Cant pass style attribute to '<Button>'
+        * To style the button, wrap it around with a '<View>' and style it accordingly
     */
     const [enteredGoal, setEnteredGoal] = useState('');
     const enteredGoalHandler = (inptText) => {
@@ -33,7 +35,7 @@ const GoalInput = props => {
                 <TextInput placeholder='Enter Text' style={GoalInputStyles.inputBox} onChangeText={enteredGoalHandler} value={enteredGoal} />
                 <View style={GoalInputStyles.btnContainer}>
                     <View style={GoalInputStyles.modalBtn}><Button title='Add' onPress={AddGoalHandler} /></View>
-                    <View style={GoalInputStyles.modalBtn}><Button title='Cancel' color="#f00" onPress={closeModal}/></View>
+                    <View style={GoalInputStyles.modalBtn}><Button title='Cancel' color="#f00" onPress={closeModal} /></View>
                 </View>
             </View>
         </Modal>
