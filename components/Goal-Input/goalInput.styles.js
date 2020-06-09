@@ -19,4 +19,14 @@ export const GoalInputStyles = StyleSheet.create({
         marginVertical: 10,
         width: '80%'
     },
+    btnContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginHorizontal: 30
+    },
+    modalBtn: { 
+        marginHorizontal: 5, 
+        flex: 1 
+    }
+
 })

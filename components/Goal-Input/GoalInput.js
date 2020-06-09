@@ -31,9 +31,9 @@ const GoalInput = props => {
         <Modal style={GoalInputStyles.goalInpModal} visible={props.isAddMode} animationType='slide'>
             <View style={GoalInputStyles.inputContainer}>
                 <TextInput placeholder='Enter Text' style={GoalInputStyles.inputBox} onChangeText={enteredGoalHandler} value={enteredGoal} />
-                <View style={{flexDirection: 'row', justifyContent:'space-between', marginHorizontal: 30}}>
-                    <View style={{marginHorizontal: 5, flex: 1}}><Button title='Add' onPress={AddGoalHandler} /></View>
-                    <View style={{marginHorizontal: 5, flex: 1}}><Button title='Cancel' color="#f00" onPress={closeModal}/></View>
+                <View style={GoalInputStyles.btnContainer}>
+                    <View style={GoalInputStyles.modalBtn}><Button title='Add' onPress={AddGoalHandler} /></View>
+                    <View style={GoalInputStyles.modalBtn}><Button title='Cancel' color="#f00" onPress={closeModal}/></View>
                 </View>
             </View>
         </Modal>
