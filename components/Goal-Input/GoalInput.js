@@ -1,18 +1,42 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, TextInput, Button, Modal } from 'react-native';
 import { GoalInputStyles } from './goalInput.styles'
 
+
+/* * */
 const GoalInput = props => {
+
+    /*  
+        * onAddpress is the custom event in App.js which is sent as props to be triggered on the onPress event
+        * the onAddpress taeks an arg "enteredGoal" which can be accessed in two waus
+            -> onPress={() => props.onAddPress(enteredGoal)}
+            -> onPress={props.onAddPress.bind(this, enteredGoal)}
+    */
     const [enteredGoal, setEnteredGoal] = useState('');
     const enteredGoalHandler = (inptText) => {
         setEnteredGoal(inptText)
     }
 
+    const AddGoalHandler = () => {
+        props.onAddPress(enteredGoal);
+        setEnteredGoal('');
+    }
+
+    const closeModal = () => {
+        setEnteredGoal('');
+        props.onCancel();
+    }
+
     return (
-        <View style={GoalInputStyles.inputContainer}>
-            <TextInput placeholder='Enter Text' style={GoalInputStyles.inputBox} onChangeText={enteredGoalHandler} value={enteredGoal} />
-            <Button title='Add'  onPress={() => props.onAddPress(enteredGoal)}/>
-        </View>
+        <Modal style={GoalInputStyles.goalInpModal} visible={props.isAddMode} animationType='slide'>
+            <View style={GoalInputStyles.inputContainer}>
+                <TextInput placeholder='Enter Text' style={GoalInputStyles.inputBox} onChangeText={enteredGoalHandler} value={enteredGoal} />
+                <View style={{flexDirection: 'row', justifyContent:'space-between', marginHorizontal: 30}}>
+                    <View style={{marginHorizontal: 5, flex: 1}}><Button title='Add' onPress={AddGoalHandler} /></View>
+                    <View style={{marginHorizontal: 5, flex: 1}}><Button title='Cancel' color="#f00" onPress={closeModal}/></View>
+                </View>
+            </View>
+        </Modal>
     )
 }
 

@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     screen: {
         paddingTop: 100,
-        paddingRight: 25,
         paddingBottom: 50,
-        paddingLeft: 25,
+        paddingHorizontal: 25,
         height: '100%',
+        backgroundColor: '#e1faea'
     },
     
     goalsContainer: {
